@@ -1,10 +1,17 @@
 package com.example.gamesuit
 
 import Pemain
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main_vs_cpu.*
 import kotlinx.android.synthetic.main.activity_main_vs_pemain.*
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_batu
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_gunting
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_kertas
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_restart
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.tv_pemenang
 
 class MainActivityVsCpu : AppCompatActivity() {
 
@@ -26,11 +33,16 @@ class MainActivityVsCpu : AppCompatActivity() {
             pemain1 = pemain.permainan[2]
             tampilPemain()
         }
-        iv_exit.setOnClickListener {
-            finish()
+        iv_home.setOnClickListener {
+            val homeIntent = Intent(this@MainActivityVsCpu, Menu::class.java)
+            startActivity(homeIntent)
         }
         iv_restart.setOnClickListener {
             reset()
+        }
+        iv_cpuClose.setOnClickListener {
+            val closeIntent = Intent(this@MainActivityVsCpu, ExitActivity::class.java)
+            startActivity(closeIntent)
         }
     }
 

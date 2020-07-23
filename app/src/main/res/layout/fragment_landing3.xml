@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/fragmen3"
             android:layout_width="wrap_content"
-            android:layout_height="303dp"
+            android:layout_height="300dp"
             android:layout_marginTop="50dp"
             android:src="@drawable/fragment3" />
 
@@ -24,22 +24,30 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:text="Persiapkan dirimu!"
+            android:text="@string/persiapkan_dirimu"
+            android:layout_marginBottom="340dp"
             android:textSize="20sp" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 Page 3"
-            android:layout_marginTop="300dp"
-            android:layout_gravity="center"/>
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/btn_fragmant5"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_navigate"
-            android:layout_marginLeft="350dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_3_page_3"
+                android:layout_marginLeft="190dp"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/btn_fragmant5"
+                android:layout_width="45dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="130dp"
+                android:src="@drawable/ic_baseline_navigate"
+                />
+
+        </LinearLayout>
 
 
 

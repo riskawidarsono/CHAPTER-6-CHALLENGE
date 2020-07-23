@@ -1,10 +1,22 @@
 package com.example.gamesuit
 
 import Pemain
+import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.activity_main_vs_cpu.*
 import kotlinx.android.synthetic.main.activity_main_vs_pemain.*
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_batu
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_batu1
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_gunting
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_gunting1
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_kertas
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_kertas1
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.iv_restart
+import kotlinx.android.synthetic.main.activity_main_vs_pemain.tv_pemenang
 
 class MainActivityVsPemain : AppCompatActivity() {
 
@@ -39,16 +51,32 @@ class MainActivityVsPemain : AppCompatActivity() {
             pemain2 = pemain.permainan[2]
             tampilPemain()
         }
-        iv_exit.setOnClickListener {
-            finish()
+        iv_homePemain.setOnClickListener {
+            val intent = Intent(this@MainActivityVsPemain, Menu::class.java)
+            startActivity(intent)
+        }
+        iv_pemainClose.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Memulai Aplikasi")
+            builder.setTitle("Anda Keluar Aplikasi?")
+            builder.setPositiveButton("Yes") { dialog: DialogInterface, which: Int ->
+                finish()
+            }
+            builder.setNegativeButton("No") { dialog: DialogInterface, which: Int ->
+                builder.show()
+            }
+
+
+            val closeIntent = Intent(this@MainActivityVsPemain, ExitActivity::class.java)
+            startActivity(closeIntent)
         }
         iv_restart.setOnClickListener {
             reset()
         }
 
 
-
     }
+
     fun reset() {
         pemain = Pemain()
         pemain1 = ""
